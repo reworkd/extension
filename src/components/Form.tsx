@@ -69,7 +69,8 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
       </label>
       <input
         type="text"
-        className="mt-1 w-full rounded-md border-gray-700 bg-gray-800 p-2 text-sm text-white shadow-sm"
+        className="mt-1 w-full rounded-md border-[1px] border-white/20 bg-purple-900/50 p-2 text-sm text-white shadow-sm"
+        value={prompt}
         onChange={(e) => {
           setPrompt(e.target.value);
         }}
@@ -81,6 +82,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
     <div className="flex flex-row items-center gap-4">
       <Select
         setter={setMood}
+        value={mood}
         label="Mood"
         items={[
           { label: "😊 Happy", value: "happy" },
@@ -106,6 +108,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
       />
       <Select
         setter={setLength}
+        value={length}
         label="Length"
         items={[
           { label: "📄 Short", value: "short" },
@@ -116,6 +119,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
       <Select
         setter={setType}
         label="Type"
+        value={type}
         items={[
           { label: "💼 Normal", value: "normal" },
           { label: "📜 Poem", value: "poem" },
@@ -183,7 +187,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
             setCurrentTopic(e.target.value);
           }}
         />
-        <Button text="Add" onClick={() => addTopicConfig(currentTopic)} />
+        <Button onClick={() => addTopicConfig(currentTopic)} className="py-1">Add</Button>
       </div>
     </div>
   );
@@ -194,34 +198,35 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
 
   return (
     <AnimatePresence>
-      <PopIn className="rounded-md bg-gradient-to-r from-sky-400 via-rose-400 to-lime-400 p-1">
-        <div className="rounded-md bg-black text-white">
-          <div className="flex flex-col gap-4 px-4 py-4">
-            <div className="z-50 flex flex-row items-center justify-between border-b-2 border-b-white backdrop-blur-md">
-              <img
-                src="https://reworkd.ai/android-chrome-512x512.png"
-                alt="Reworkd WordMark"
-                className=" rounded object-cover"
-                width={64}
-              />
-              <h1 className="text-4xl">Reworkd</h1>
-              <button className="text-4xl" onClick={onClose}>
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </button>
-            </div>
+      <PopIn className="rounded-lg bg-black b-[1px] border-b-white/10 text-white max-w-4xl">
+        <div className="flex flex-col" style={{ backgroundImage: "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh"}}>
+          <div className="rounded-lg p-3 flex flex-row items-center justify-between border-b-[1px] border-b-white/20 backdrop-blur-md backdrop-brightness-125">
+            <img
+              src="https://reworkd.ai/android-chrome-512x512.png"
+              alt="Reworkd WordMark"
+              className=" rounded object-cover"
+              width={64}
+            />
+            <h1 className="text-4xl">Reworkd</h1>
+            <Button className="text-4xl" onClick={onClose}>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </Button>
+          </div>
+          <div className="p-3 flex flex-col gap-4">
+
             {showForm && promptField}
             {showForm && moodFields}
             {showForm && topicFields}
@@ -230,8 +235,8 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
             )}
             {isSuccess && results}
             {showForm && (
-              <button
-                className="rounded-xl bg-green-400 px-4 py-2 text-2xl"
+              <Button
+                className=" px-4 py-2 text-2xl"
                 onClick={() => {
                   mutate({
                     prompt,
@@ -243,32 +248,31 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
                 }}
               >
                 Generate
-              </button>
+              </Button>
             )}
             {isSuccess && (
               <div className="flex flex-row items-end justify-center gap-2">
-                <button
+                <Button
                   onClick={reset}
-                  className="rounded-xl bg-red-500 px-4 py-2 text-2xl"
+                  className="bg-red-500 px-4 py-2 text-2xl"
                 >
                   Reset
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={onClose}
-                  className="rounded-xl bg-gray-800 px-4 py-2 text-2xl"
+                  className="bg-gray-800 px-4 py-2 text-2xl"
                 >
                   Close
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={() => {
                     void window.navigator.clipboard
                       .writeText(data?.value || "")
                       .then();
                   }}
-                  className="rounded-xl bg-gray-800 px-4 py-2 text-2xl"
                 >
                   <FaCopy />
-                </button>
+                </Button>
               </div>
             )}
           </div>

@@ -3,11 +3,12 @@ import React from "react";
 
 type Props = {
   label: string;
+  value: string;
   items: { label: string; value: string }[];
   setter: Dispatch<SetStateAction<string>>;
 };
 
-const Select = ({ label, items, setter }: Props) => {
+const Select = ({ value, label, items, setter }: Props) => {
   return (
     <div className="flex flex-col items-start justify-between gap-2">
       <label htmlFor={label} className="text-sm font-medium text-gray-300">
@@ -26,6 +27,7 @@ const Select = ({ label, items, setter }: Props) => {
         focus:ring-blue-500
         focus:ring-blue-500
         "
+        value={value}
         onChange={(e) => {
           setter(e.target.value);
         }}

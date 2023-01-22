@@ -24,7 +24,7 @@ const Home: NextPage = () => {
           alt={"Stars"}
           width={"900"}
           height={"900"}
-          className="absolute top-[10vh] left-[10vw] z-10 hidden w-[1500px] opacity-[0.4] md:block"
+          className="absolute top-[10vh] left-[10vw] hidden w-[1500px] opacity-[0.4] md:block"
         />
 
         <HeroText />
