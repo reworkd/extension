@@ -1,28 +1,81 @@
-# Create T3 App
+![Confetti](https://github.com/awtkns/reworkd/blob/main/public/social.png)
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+<p align="center">
+  <em>🤖 Making your life easier 🤖</em></br>
+  <sub>Revolutionizing responses with the power of AI</sub>
+</p>
+<p align="center">
+ <a href="https://confetti.dev/" target="_blank">
+  <img alt="Deployment Success" src="https://img.shields.io/github/deployments/awtkns/confetti/production?color=2334D058&label=Deployment" />
+ </a>
+ <img alt="Health Check" src="https://img.shields.io/github/actions/workflow/status/awtkns/confetti/healthcheck.yml?label=Health%20Check&color=2334D058" />
+ <img alt="License" src="https://img.shields.io/github/license/awtkns/confetti?color=2334D058" />
+ <img alt="Node version" src="https://img.shields.io/static/v1?label=node&message=%20%3E=16.0.0&logo=node.js&color=2334D058" />
+</p>
 
-## What's next? How do I make an app with this?
+<p align="center">
+<a href="https://reworkd.ai">🔗 Short link</a>
+<span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+<a href="#-getting-started">🤝 Contribute</a>
+</p>
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+---
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## 📖 About
+Reworkd.ai revolutionizes responses with the power of AI. We are a team of developers and designers who are 
+passionate about building products that make a difference. We are currently working on a product that will 
+help you create better responses to your customers.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## 🚀 Tech Stack
 
-## Learn More
+- ✅ **Bootstrapping**: [create-t3-app](https://create.t3.gg).
+- ✅ **Framework**: [Nextjs 13 + Typescript](https://nextjs.org/).
+- ✅ **ORM**: [Prisma](https://prisma.io).
+- ✅ **Database**: [Planetscale](https://planetscale.com/).
+- ✅ **Realtime**: [Supabase](https://supabase.com/).
+- ✅ **Styling**: [TailwindCSS + HeadlessUI](https://tailwindcss.com).
+- ✅ **Typescript Schema Validation**: [Zod](https://github.com/colinhacks/zod).
+- ✅ **End-to-end typesafe API**: [tRPC](https://trpc.io/).
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## 👨‍🚀 Getting Started
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+> 🚧 You will need [Nodejs +16 (LTS recommended)](https://nodejs.org/en/) installed.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+1. Fork this project:
 
-## How do I deploy this?
+- [Click here](https://github.com/awtkns/confetti/fork).
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+2. Clone the repository:
+
+```bash
+git clone git@github.com:YOU_USER/confetti.git
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Create a **.env** file with the following content:
+
+> 🚧 The environment variables must match the following [schema](https://github.com/awtkns/confetti/blob/main/src/env/schema.mjs#L8).
+
+```bash
+# Next Auth Secrets
+DATABASE_URL=
+NEXTAUTH_SECRET=
+NEXTAUTH_URL=
+OPENAI_ORGANIZATION=
+OPENAI_API_KEY=
+```
+
+5. Ready 🥳, now run:
+
+```bash
+# Create database migrations
+npx prisma db push
+
+# Run the project:
+npm run dev
+```
