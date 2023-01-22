@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .top-gradient {
-    background-image: radial-gradient(circle at 50% 140vh, #a21caf,transparent 70%);
+    background-image: radial-gradient(circle at 50% -300vh, #a21caf,transparent 70%);
 }
 
 .hero-text {
@@ -21,8 +21,12 @@
     height: 1680px;
 
     background: #000000;
-    border-top: 1px solid rgba(120, 119, 198, 0.4);
     border-radius: 500px;
+    border-top: 1px solid transparent;
+
+    background-image: linear-gradient(black, black), linear-gradient(to right, transparent 10%,  rgba(120, 119, 198, 0.4), transparent);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
 }
 
 .rotation-container {
