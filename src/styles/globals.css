@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hero-text {
+    background: linear-gradient(135deg, #FFFFFF 50%, rgba(255, 255, 255, 0.38) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.crescent {
+    box-sizing: border-box;
+
+    width: 2400px;
+    height: 1680px;
+
+    background: #000000;
+    border-top: 1px solid rgba(120, 119, 198, 0.4);
+    border-radius: 1020px;
+}
