@@ -1,5 +1,5 @@
 import Select from "../ui/select";
-import {ChangeEvent, useState} from "react";
+import { type ChangeEvent, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import Loader from "../ui/loader";
 import Button from "./Button";
@@ -25,8 +25,9 @@ interface Response {
 }
 
 const openAiRequest = async (request: Request) => {
+  const url = process.env.NODE_ENV === "production" ? 'https://www.reworkd.ai' : `http://localhost:3000`;
   const res = await fetch(
-    `http://localhost:3000/api/trpc/event.hello?batch=1&input=${encodeURIComponent(
+    `${url}/api/trpc/event.hello?batch=1&input=${encodeURIComponent(
       JSON.stringify({
         "0": {
           json: request,
@@ -191,7 +192,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
 
   return (
       <div className="rounded-lg bg-black min-w-[32em] min-h-[20em] b-[1px] border-b-white/10 text-white max-w-4xl shadow-2xl">
-        <div className="flex flex-col h-full" style={{ backgroundImage: "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh"}}>
+        <div className="flex flex-col h-full min-w-[32em] min-h-[20em]" style={{ backgroundImage: "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh"}}>
           <div className="rounded-lg p-5 flex flex-row items-center justify-between border-b-[1px] border-b-white/20 backdrop-blur-md backdrop-brightness-125">
             <img
               src="/wordmark-dark.svg"
@@ -210,8 +211,8 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
                 <path
                   d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z"
                   fill="currentColor"
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
             </Button>
