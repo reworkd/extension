@@ -6,6 +6,7 @@ import PopIn from "../ui/popin";
 import Loader from "../ui/loader";
 import Button from "./Button";
 import { FaCopy } from "react-icons/fa";
+import { async } from "rxjs";
 
 interface Request {
   prompt: string;
@@ -46,7 +47,7 @@ const openAiRequest = async (request: Request) => {
 type TopicConfig = {
   topic: string;
   color: string;
-}
+};
 
 const Form = ({ onClose }: { onClose?: () => void }) => {
   const [prompt, setPrompt] = useState("");
@@ -64,9 +65,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
 
   const promptField = (
     <div className="flex flex-row items-center gap-4">
-      <label
-        className="block text-xs font-medium text-gray-200"
-      >
+      <label className="block text-xs font-medium text-gray-200">
         Respond to
       </label>
       <input
@@ -91,46 +90,55 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
         label="Length"
         items={["📄 Short", "📕 Medium", "📚 Long"]}
       />
-      <Select setter={setType} label="Type" items={["💼 Normal", "📜 Poem", "🎵 Song", "🎨 Story"]} />
+      <Select
+        setter={setType}
+        label="Type"
+        items={["💼 Normal", "📜 Poem", "🎵 Song", "🎨 Story"]}
+      />
     </div>
   );
 
   const addTopicConfig = (topic: string) => {
-    if(topic === "") { return; }
+    if (topic === "") {
+      return;
+    }
     setTopics([
       ...topics,
       {
         topic: topic,
-        color: "#" + Math.floor(Math.random()*16777215).toString(16), // Random color
+        color: "#" + Math.floor(Math.random() * 16777215).toString(16), // Random color
       },
     ]);
     setCurrentTopic("");
-  }
+  };
 
   const removeTopic = (i: number) => {
-    const newTopics = [...topics]
+    const newTopics = [...topics];
     newTopics.splice(i, 1);
     setTopics(newTopics);
-  }
+  };
 
   const topicFields = (
     <div>
-      <div className="flex flex-wrap gap-2 max-w-md ">
-        { topics.map((topic, i) => (
+      <div className="flex max-w-md flex-wrap gap-2 ">
+        {topics.map((topic, i) => (
           <div
             key={`${topic.topic}-${topic.color}-${i}`}
-            className="rounded-xl px-2 flex flex-wrap gap-2"
-            style={{background: topic.color}}
+            className="flex flex-wrap gap-2 rounded-xl px-2"
+            style={{ background: topic.color }}
           >
             {topic.topic}
-            <div className="text-black cursor-pointer" onClick={() => removeTopic(i)}>x</div>
+            <div
+              className="cursor-pointer text-black"
+              onClick={() => removeTopic(i)}
+            >
+              x
+            </div>
           </div>
         ))}
       </div>
       <div className="flex flex-row items-center gap-4">
-        <label
-          className="block text-xs font-medium text-gray-200"
-        >
+        <label className="block text-xs font-medium text-gray-200">
           Talk about
         </label>
         <input
@@ -141,10 +149,10 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
             setCurrentTopic(e.target.value);
           }}
         />
-        <Button text="Add" onClick={() => addTopicConfig(currentTopic)}/>
+        <Button text="Add" onClick={() => addTopicConfig(currentTopic)} />
       </div>
     </div>
-  )
+  );
 
   const results = <pre className="bg-gray-800 px-2 text-sm">{data?.value}</pre>;
 
@@ -196,7 +204,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
                     mood,
                     length,
                     type,
-                    topics: topics.map(topic => topic.topic),
+                    topics: topics.map((topic) => topic.topic),
                   });
                 }}
               >
@@ -219,7 +227,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
                 </button>
                 <button
                   onClick={() => {
-                    window.navigator.clipboard
+                    void window.navigator.clipboard
                       .writeText(data?.value || "")
                       .then();
                   }}
