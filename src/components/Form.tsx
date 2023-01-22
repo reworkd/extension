@@ -1,12 +1,11 @@
 import Select from "../ui/select";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import PopIn from "../ui/popin";
 import Loader from "../ui/loader";
 import Button from "./Button";
 import { FaCopy } from "react-icons/fa";
-import { async } from "rxjs";
 
 interface Request {
   prompt: string;
@@ -83,17 +82,52 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
       <Select
         setter={setMood}
         label="Mood"
-        items={["😊 Happy", "🙃 Condescending", "😡 Angry", "🤢 Sickly"]}
+        items={[
+          { label: "😊 Happy", value: "happy" },
+          { label: "🙃 Condescending", value: "condescending" },
+          { label: "😡 Angry", value: "angry" },
+          { label: "🤔 Thoughtful", value: "thoughtful" },
+          { label: "🤪 Crazy", value: "crazy" },
+          { label: "🤯 Insane", value: "insane" },
+          { label: "🤬 Angry", value: "angry" },
+          { label: "🤮 Sick", value: "sickly" },
+          { label: "🤭 Shy", value: "shy" },
+          { label: "🤫 Quiet", value: "quiet" },
+          { label: "🤥 Lying", value: "lying" },
+          { label: "🤤 Drooling", value: "drooling" },
+          { label: "🤢 Disgusted", value: "disgusted" },
+          { label: "🤠 Cowboy", value: "cowboy" },
+          { label: "🤡 Clown", value: "clown" },
+          { label: "🤖 Robot", value: "robot" },
+          { value: "alien", label: "👽 Alien" },
+          { value: "evil", label: "👿 Evil" },
+          { value: "horse", label: "🐴 Horse" },
+        ]}
       />
       <Select
         setter={setLength}
         label="Length"
-        items={["📄 Short", "📕 Medium", "📚 Long"]}
+        items={[
+          { label: "📄 Short", value: "short" },
+          { label: "📕 Medium", value: "medium" },
+          { label: "📚 Long", value: "long" },
+        ]}
       />
       <Select
         setter={setType}
         label="Type"
-        items={["💼 Normal", "📜 Poem", "🎵 Song", "🎨 Story"]}
+        items={[
+          { label: "💼 Normal", value: "normal" },
+          { label: "📜 Poem", value: "poem" },
+          { label: "🎵 Song", value: "song" },
+          { label: "🎨 Story", value: "story" },
+          { label: "📝 Essay", value: "essay" },
+          { label: "📃 Article", value: "article" },
+          { label: "📜 Letter", value: "letter" },
+          { label: "📝 Email", value: "email" },
+          { label: "📝 Tweet", value: "tweet" },
+          { label: "📝 Reddit Post", value: "reddit" },
+        ]}
       />
     </div>
   );

@@ -3,7 +3,7 @@ import React from "react";
 
 type Props = {
   label: string;
-  items: string[];
+  items: { label: string; value: string }[];
   setter: Dispatch<SetStateAction<string>>;
 };
 
@@ -32,8 +32,8 @@ const Select = ({ label, items, setter }: Props) => {
       >
         {/*<option selected>Choose a country</option>*/}
         {items.map((item, i) => (
-          <option key={i} value={item} className="text-white">
-            {item}
+          <option key={i} value={item.value} className="text-white">
+            {item.label}
           </option>
         ))}
       </select>
