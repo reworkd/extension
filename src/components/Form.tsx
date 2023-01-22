@@ -221,7 +221,7 @@ const Form = ({ onClose, isDialog }: { onClose?: () => void, isDialog?: boolean}
             }
           </div>
           <div className="p-5 flex h-full justify-evenly flex-col gap-4">
-
+            {(showForm && isDialog) && <div className="block text-xm font-bold text-gray-200 w-full text-center">NOTE: This is an example of what the extension is like.</div>}
             {showForm && promptField}
             {showForm && moodFields}
             {showForm && topicFields}
