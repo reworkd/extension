@@ -21,7 +21,7 @@ export const config: PlasmoContentScript = {
 // Inject into the ShadowDOM
 export const getStyle = () => {
   const style = document.createElement("style");
-  style.textContent = cssText;
+  style.textContent = cssText as string;
   return style;
 };
 
