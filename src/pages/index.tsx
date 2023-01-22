@@ -17,18 +17,26 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="min-h-screen bg-black top-gradient">
-        <Navbar/>
-        <Image src={"/stars.png"} alt={"Stars"} width={"900"} height={"900"} className="hidden md:block absolute w-[1500px] top-[10vh] left-[10vw] opacity-[0.4]"/>
-        <HeroText/>
-        <div className="translate-y-[-12em] md:translate-y-[-15em] flex items-center w-full justify-center text-white">
+      <main className="top-gradient min-h-screen bg-black">
+        <Navbar />
+        <Image
+          src={"/stars.png"}
+          alt={"Stars"}
+          width={"900"}
+          height={"900"}
+          className="absolute top-[10vh] left-[10vw] z-10 hidden w-[1500px] opacity-[0.4] md:block"
+        />
+
+        <HeroText />
+        <div className="flex w-full translate-y-[-12em] items-center justify-center text-white md:translate-y-[-15em]">
           <div className="crescent flex items-start justify-center">
-            <div className="flex flex-col max-w-screen-lg w-full translate-y-[15em] gap-32">
-                <InformationCards/>
+            <div className="flex w-full max-w-screen-lg translate-y-[15em] flex-col gap-32">
+              <InformationCards />
             </div>
           </div>
         </div>
-        <Footer/>
+
+        <Footer />
       </main>
     </>
   );
