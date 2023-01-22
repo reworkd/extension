@@ -24,7 +24,7 @@ const Logo: React.FC<{ width?: number; className?: string }> = ({
         <div className="z-50 flex flex-row items-end justify-between border-b-[1px] border-b-white/10 backdrop-blur-md backdrop-brightness-125">
           <img
             src="https://reworkd.ai/wordmark-dark.svg"
-            alt="Reworkd Wordmark"
+            alt="Reworkd WordMark"
             className=" rounded object-cover"
           />
         </div>
