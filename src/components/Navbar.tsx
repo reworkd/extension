@@ -8,7 +8,7 @@ const Header = () => {
     >
       <div className="mx-auto flex h-[4.5em] max-w-screen-lg flex-row items-center justify-between">
         <Logo />
-        <div className="mr-0 inline-flex items-center gap-4 text-white">
+        <div className="hidden sm:block mr-0 inline-flex items-center gap-4 text-white">
           <p>Get started</p>
         </div>
       </div>

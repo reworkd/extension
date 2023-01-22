@@ -7,7 +7,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
+    text-fill-coolr: transparent;
 }
 
 .crescent {
@@ -19,4 +19,59 @@
     background: #000000;
     border-top: 1px solid rgba(120, 119, 198, 0.4);
     border-radius: 1020px;
+}
+
+.rotation-container {
+    -webkit-text-fill-color: aquamarine;
+    text-fill-color: unset;
+    color:white;
+    position: relative;
+    perspective: 10000px;
+    transform-style: preserve-3d;
+    width: 4em;
+    animation: text-rotate 6s ease infinite;
+}
+
+.rotation-container p {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    -webkit-backface-visibility: hidden;
+    text-align: center;
+}
+
+.rotation-container p:nth-child(1) {
+    transform: rotateX(360deg) translateZ(30px);
+}
+
+.rotation-container p:nth-child(2) {
+    transform: rotateX(270deg) translateZ(30px);
+}
+
+.rotation-container p:nth-child(3) {
+    transform: rotateX(180deg) translateZ(30px);
+}
+
+.rotation-container p:nth-child(4) {
+    transform: rotateX(90deg) translateZ(30px);
+}
+
+
+@keyframes text-rotate {
+    0% {
+        transform: rotateX(0deg);
+    }
+    25% {
+        transform: rotateX(90deg);
+    }
+    50% {
+        transform: rotateX(180deg);
+    }
+    75% {
+        transform: rotateX(270deg);
+    }
+    100% {
+        transform: rotateX(360deg);
+    }
 }
