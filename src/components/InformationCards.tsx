@@ -77,7 +77,7 @@ const InformationCards = () => {
 							text: "F**k you!",
 						},
 						{
-							emoji: "😀",
+							emoji: "❤️",
 							text: "I love you!",
 						},
 					].map((item, i) => { return (
