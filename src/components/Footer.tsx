@@ -50,6 +50,9 @@ const Footer = () => {
     <footer
       aria-label="Site Footer"
       className="mt-auto w-full translate-y-[80em] text-white sm:translate-y-[90em] lg:translate-y-[40em]"
+      style={{
+        backgroundImage: "url(/lines.svg)",
+      }}
     >
       <div className="z-10 mx-auto max-w-screen-xl space-y-8 px-4 py-4 sm:py-8 lg:space-y-16">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
