@@ -1,11 +1,10 @@
-import iconBase64 from "data-base64:~assets/icon.png";
-// import cssText from "data-text:./google-sidebar.css";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+// @ts-nocheck
+
 import cssText from "data-text:../styles/globals.css";
 
 import type { PlasmoContentScript } from "plasmo";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Form from "../components/Form";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -25,15 +24,10 @@ export const getStyle = () => {
   return style;
 };
 
-// export const getShadowHostId = () => "plasmo-google-sidebar";
 const client = new QueryClient();
 
 const GoogleSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  // useEffect(() => {
-  //   document.body.classList.toggle("plasmo-google-sidebar-show", isOpen);
-  // }, [isOpen]);
 
   return (
     <QueryClientProvider client={client}>
