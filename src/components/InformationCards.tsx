@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import cx from "classnames";
-import { FC, ReactNode } from "react";
 import Image from "next/image";
 import { FaPlus } from "react-icons/fa";
 
@@ -9,6 +8,7 @@ const InformationCards = () => {
     <>
       <InformationCard
         title="Compose emails"
+        color="rgba(250 134 83 / 60%)"
         className="bg-gradient-to-r from-orange-400 to-rose-400"
         text="Simplify your email communication by using AI to compose detailed messages with just a brief prompt. Say goodbye to tedious typing and let the AI handle the heavy lifting for you."
       >
@@ -38,6 +38,7 @@ const InformationCards = () => {
       </InformationCard>
       <InformationCard
         flip
+        color="rgb(65 165 250 / 60%)"
         title="Reply to tweets"
         text="Companies can now create tailored responses to their customers' tweets, replacing the use of generic replies. "
         className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-400 to-blue-500"
@@ -72,6 +73,7 @@ const InformationCards = () => {
         </div>
       </InformationCard>
       <InformationCard
+        color="rgb(127 255 212 / 60%)"
         title="Regenerate sentences"
         text="If you are not satisfied with the AI's response, you can easily generate a new one by clicking 'regenerate' which eliminates the need to spend extra time thinking of an alternate way to phrase your response."
         className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-green-500 to-green-700"
@@ -118,6 +120,7 @@ const InformationCards = () => {
       </InformationCard>
       <InformationCard
         flip
+        color="#4E1D95"
         title="Tailored responses"
         text="Response customization can be achieved by using different options such as emojis, response length, and level of detail. Using a combination of options can help you effectively convey your message in specific circumstances."
         className="bg-gradient-to-r from-purple-800 via-violet-900 to-purple-800"
@@ -190,7 +193,7 @@ type InformationCardProps = {
   title: string;
   text: string;
   flip?: boolean;
-  color?: string;
+  color: string;
   children?: JSX.Element | JSX.Element[];
 };
 
@@ -213,13 +216,13 @@ const InformationCard = ({
           transition: { duration: 0.2, ease: "easeInOut", delay: 0 },
         }}
         className={`shadow-[shadowColour] ${flip ? "order-1 " : " "}`}
+        style={{ boxShadow: `0 0 100px 10px ${color}`}}
       >
         <MacWindowHeader />
         <div
           className={`${
             className ?? ""
           } flex h-[20em] w-[20em] flex-col items-center justify-center gap-2 rounded-b-md sm:w-[30em]`}
-          style={color ? { background: color } : {}}
         >
           {children}
         </div>
@@ -230,7 +233,7 @@ const InformationCard = ({
         transition={{ duration: 1.3, ease: "easeOut", delay: 0.3 }}
         className="flex w-[25em] flex-col gap-2"
         style={{
-          textShadow: `0px 0px 20px ${color}, 0px 0px 20px ${color}, 0px 0px 20px ${color}`,
+          textShadow: `0px 0px 20px ${color}, 0px 0px 20px ${color}`,
         }}
       >
         <h1 className="text-4xl">{title}</h1>
