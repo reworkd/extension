@@ -9,19 +9,16 @@ type Props = {
 
 const Select = ({ label, items, setter }: Props) => {
   return (
-    <div className="flex flex-row items-center justify-between gap-2">
-      <label
-        htmlFor={label}
-        className="min-w-40 text-sm font-medium text-white"
-      >
+    <div className="flex flex-col items-start justify-between gap-2">
+      <label htmlFor={label} className="text-sm font-medium text-gray-300">
         {label}
       </label>
       <select
         id={label}
         className="
-        w-40
-        rounded-lg border
-        border-gray-600 bg-gray-700 bg-gray-50
+        rounded-lg
+        border border-gray-600
+        bg-slate-900
         p-2.5 text-sm text-black
         text-gray-900
         placeholder-gray-400
