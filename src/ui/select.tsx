@@ -19,8 +19,8 @@ const Select = ({ label, items, setter }: Props) => {
         rounded-lg
         border border-gray-600
         bg-slate-900
-        p-2.5 text-sm text-black
-        text-gray-900
+        p-2.5 text-sm
+        text-white
         placeholder-gray-400
         focus:border-blue-500
         focus:ring-blue-500
@@ -32,7 +32,7 @@ const Select = ({ label, items, setter }: Props) => {
       >
         {/*<option selected>Choose a country</option>*/}
         {items.map((item, i) => (
-          <option key={i} value={item}>
+          <option key={i} value={item} className="text-white">
             {item}
           </option>
         ))}
