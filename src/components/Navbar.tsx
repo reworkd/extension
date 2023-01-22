@@ -1,4 +1,5 @@
 import Logo from "./Logo";
+import Button from "./Button";
 
 const Header = () => {
   return (
@@ -9,7 +10,7 @@ const Header = () => {
       <div className="mx-auto flex h-[4.5em] max-w-screen-lg flex-row items-center justify-between">
         <Logo />
         <div className="hidden sm:block mr-0 inline-flex items-center gap-4 text-white">
-          <p>Get started</p>
+          <Button text="Get Started"/>
         </div>
       </div>
     </header>
