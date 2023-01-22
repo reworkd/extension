@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { AnimatePresence, motion } from "framer-motion";
 import PopIn from "../ui/popin";
 import Loader from "../ui/loader";
+import { FaCopy } from "react-icons/fa";
 
 interface Request {
   prompt: string;
@@ -154,6 +155,16 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
                   className="rounded-xl bg-gray-800 px-4 py-2 text-2xl"
                 >
                   Close
+                </button>
+                <button
+                  onClick={() => {
+                    window.navigator.clipboard
+                      .writeText(data?.value || "")
+                      .then();
+                  }}
+                  className="rounded-xl bg-gray-800 px-4 py-2 text-2xl"
+                >
+                  <FaCopy />
                 </button>
               </div>
             )}
