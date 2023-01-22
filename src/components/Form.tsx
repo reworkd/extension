@@ -25,7 +25,10 @@ interface Response {
 }
 
 const openAiRequest = async (request: Request) => {
-  const url = process.env.NODE_ENV === "production" ? 'https://www.reworkd.ai' : `http://localhost:3000`;
+  const url =
+    process.env.NODE_ENV === "production"
+      ? "https://www.reworkd.ai"
+      : `http://localhost:3000`;
   const res = await fetch(
     `${url}/api/trpc/event.hello?batch=1&input=${encodeURIComponent(
       JSON.stringify({
@@ -48,7 +51,13 @@ type TopicConfig = {
   color: string;
 };
 
-const Form = ({ onClose, isDialog }: { onClose?: () => void, isDialog?: boolean}) => {
+const Form = ({
+  onClose,
+  isDialog,
+}: {
+  onClose?: () => void;
+  isDialog?: boolean;
+}) => {
   const [prompt, setPrompt] = useState("");
   const [mood, setMood] = useState("");
   const [length, setLength] = useState("");
@@ -64,7 +73,12 @@ const Form = ({ onClose, isDialog }: { onClose?: () => void, isDialog?: boolean}
 
   const promptField = (
     <div className="flex flex-row items-center gap-4">
-      <InputField value={prompt} onChange={(e: ChangeEvent<HTMLInputElement>) => {setPrompt(e.target.value);}}>
+      <InputField
+        value={prompt}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+          setPrompt(e.target.value);
+        }}
+      >
         Respond to
       </InputField>
     </div>
@@ -154,7 +168,7 @@ const Form = ({ onClose, isDialog }: { onClose?: () => void, isDialog?: boolean}
         {topics.map((topic, i) => (
           <div
             key={`${topic.topic}-${topic.color}-${i}`}
-            className="flex flex-wrap gap-2 rounded-xl px-2 my-1"
+            className="my-1 flex flex-wrap gap-2 rounded-xl px-2"
             style={{ background: topic.color }}
           >
             {topic.topic}
@@ -168,10 +182,17 @@ const Form = ({ onClose, isDialog }: { onClose?: () => void, isDialog?: boolean}
         ))}
       </div>
       <div className="flex flex-row items-center gap-4">
-        <InputField value={currentTopic} onChange={(e: ChangeEvent<HTMLInputElement>) => {setCurrentTopic(e.target.value);}}>
+        <InputField
+          value={currentTopic}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setCurrentTopic(e.target.value);
+          }}
+        >
           Talk about
         </InputField>
-        <Button onClick={() => addTopicConfig(currentTopic)} className="py-1">Add</Button>
+        <Button onClick={() => addTopicConfig(currentTopic)} className="py-1">
+          Add
+        </Button>
       </div>
     </div>
   );
@@ -184,98 +205,107 @@ const Form = ({ onClose, isDialog }: { onClose?: () => void, isDialog?: boolean}
       }}
       className="rounded-md bg-gray-800 p-4 text-sm"
     >
-      {data?.value}
+      {data?.value}.trim()
     </pre>
   );
 
   const showForm = !isLoading && !isSuccess;
 
   return (
-      <div className="rounded-lg bg-black min-w-[32em] min-h-[20em] b-[1px] border-b-white/10 text-white max-w-4xl shadow-2xl">
-        <div className="flex flex-col h-full min-w-[32em] min-h-[20em]" style={{ backgroundImage: "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh"}}>
-          <div className="rounded-lg p-5 flex flex-row items-center justify-between border-b-[1px] border-b-white/20 backdrop-blur-md backdrop-brightness-125">
-            <img
-              src="https://www.reworkd.ai/wordmark-dark.svg"
-              alt="Reworkd WordMark"
-              className=" rounded object-cover"
-              width={175}
-            />
-            {
-              isDialog ? <></> :
-              <Button onClick={onClose}>
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 15 15"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z"
-                    fill="currentColor"
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
+    <div className="b-[1px] min-h-[20em] min-w-[32em] max-w-4xl rounded-lg border-b-white/10 bg-black text-white shadow-2xl">
+      <div
+        className="flex h-full min-h-[20em] min-w-[32em] flex-col"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh",
+        }}
+      >
+        <div className="flex flex-row items-center justify-between rounded-lg border-b-[1px] border-b-white/20 p-5 backdrop-blur-md backdrop-brightness-125">
+          <img
+            src="https://www.reworkd.ai/wordmark-dark.svg"
+            alt="Reworkd WordMark"
+            className=" rounded object-cover"
+            width={175}
+          />
+          {isDialog ? (
+            <></>
+          ) : (
+            <Button onClick={onClose}>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 15 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z"
+                  fill="currentColor"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </Button>
+          )}
+        </div>
+        <div className="flex h-full flex-col justify-evenly gap-4 p-5">
+          {showForm && isDialog && (
+            <div className="text-xm block w-full text-center font-bold text-gray-200">
+              NOTE: This is an example of what the extension is like.
+            </div>
+          )}
+          {showForm && promptField}
+          {showForm && moodFields}
+          {showForm && topicFields}
+          {isLoading && (
+            <Loader size={60} className="flex flex-row justify-center" />
+          )}
+          {isSuccess && results}
+          {showForm && (
+            <Button
+              className="justify-center px-4 py-2 text-2xl"
+              onClick={() => {
+                mutate({
+                  prompt,
+                  mood,
+                  length,
+                  type,
+                  topics: topics.map((topic) => topic.topic),
+                });
+              }}
+            >
+              Generate
+            </Button>
+          )}
+          {isSuccess && (
+            <div className="flex flex-row items-center justify-center gap-2">
+              <Button onClick={reset} className="px-4 py-2 text-2xl">
+                Reset
               </Button>
-            }
-          </div>
-          <div className="p-5 flex h-full justify-evenly flex-col gap-4">
-            {(showForm && isDialog) && <div className="block text-xm font-bold text-gray-200 w-full text-center">NOTE: This is an example of what the extension is like.</div>}
-            {showForm && promptField}
-            {showForm && moodFields}
-            {showForm && topicFields}
-            {isLoading && (
-              <Loader size={60} className="flex flex-row justify-center" />
-            )}
-            {isSuccess && results}
-            {showForm && (
+              {isDialog ? (
+                <></>
+              ) : (
+                <Button
+                  onClick={onClose}
+                  className="bg-gray-800 px-4 py-2 text-2xl"
+                >
+                  Close
+                </Button>
+              )}
               <Button
-                className="justify-center px-4 py-2 text-2xl"
                 onClick={() => {
-                  mutate({
-                    prompt,
-                    mood,
-                    length,
-                    type,
-                    topics: topics.map((topic) => topic.topic),
-                  });
+                  void window.navigator.clipboard
+                    .writeText(data?.value || "")
+                    .then();
                 }}
               >
-                Generate
+                <FaCopy />
               </Button>
-            )}
-            {isSuccess && (
-              <div className="flex flex-row items-center justify-center gap-2">
-                <Button
-                  onClick={reset}
-                  className="px-4 py-2 text-2xl"
-                >
-                  Reset
-                </Button>
-                {
-                  isDialog ? <></> :
-                    <Button
-                      onClick={onClose}
-                      className="bg-gray-800 px-4 py-2 text-2xl"
-                    >
-                      Close
-                    </Button>
-                }
-                <Button
-                  onClick={() => {
-                    void window.navigator.clipboard
-                      .writeText(data?.value || "")
-                      .then();
-                  }}
-                >
-                  <FaCopy />
-                </Button>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
+    </div>
   );
 };
 
