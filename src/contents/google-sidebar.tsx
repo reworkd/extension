@@ -10,7 +10,7 @@ import Form from "../components/Form";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export const config: PlasmoContentScript = {
-  matches: ["http://*/*"],
+  matches: ["https://*/*", "https://*/*"],
 };
 
 // Inject into the ShadowDOM

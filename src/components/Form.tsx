@@ -195,7 +195,7 @@ const Form = ({ onClose, isDialog }: { onClose?: () => void, isDialog?: boolean}
         <div className="flex flex-col h-full min-w-[32em] min-h-[20em]" style={{ backgroundImage: "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh"}}>
           <div className="rounded-lg p-5 flex flex-row items-center justify-between border-b-[1px] border-b-white/20 backdrop-blur-md backdrop-brightness-125">
             <img
-              src="/wordmark-dark.svg"
+              src="https://www.reworkd.ai/wordmark-dark.svg"
               alt="Reworkd WordMark"
               className=" rounded object-cover"
               width={175}
