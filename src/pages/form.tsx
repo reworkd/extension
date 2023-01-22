@@ -1,9 +1,4 @@
 import { type NextPage } from "next";
-import Head from "next/head";
-import { motion, useScroll } from "framer-motion";
-import cx from "classnames";
-import Navbar from "../components/Navbar";
-import HeroText from "../components/HeroText";
 import Form from "../components/Form";
 
 const Home: NextPage = () => {

@@ -1,11 +1,12 @@
 import Select from "../ui/select";
-import { useState } from "react";
+import {ChangeEvent, useState} from "react";
 import { useMutation } from "@tanstack/react-query";
 import { AnimatePresence } from "framer-motion";
 import PopIn from "../ui/popin";
 import Loader from "../ui/loader";
 import Button from "./Button";
 import { FaCopy } from "react-icons/fa";
+import InputField from "./InputField";
 
 interface Request {
   prompt: string;
@@ -64,17 +65,9 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
 
   const promptField = (
     <div className="flex flex-row items-center gap-4">
-      <label className="block text-xs font-medium text-gray-200">
+      <InputField value={prompt} onChange={(e: ChangeEvent<HTMLInputElement>) => {setPrompt(e.target.value);}}>
         Respond to
-      </label>
-      <input
-        type="text"
-        className="mt-1 w-full rounded-md border-[1px] border-white/20 bg-purple-900/50 p-2 text-sm text-white shadow-sm"
-        value={prompt}
-        onChange={(e) => {
-          setPrompt(e.target.value);
-        }}
-      />
+      </InputField>
     </div>
   );
 
@@ -162,7 +155,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
         {topics.map((topic, i) => (
           <div
             key={`${topic.topic}-${topic.color}-${i}`}
-            className="flex flex-wrap gap-2 rounded-xl px-2"
+            className="flex flex-wrap gap-2 rounded-xl px-2 my-1"
             style={{ background: topic.color }}
           >
             {topic.topic}
@@ -176,17 +169,9 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
         ))}
       </div>
       <div className="flex flex-row items-center gap-4">
-        <label className="block text-xs font-medium text-gray-200">
+        <InputField value={currentTopic} onChange={(e: ChangeEvent<HTMLInputElement>) => {setCurrentTopic(e.target.value);}}>
           Talk about
-        </label>
-        <input
-          type="text"
-          className="mt-1 w-full rounded-md border-gray-700 bg-gray-800 p-2 text-sm text-white shadow-sm"
-          value={currentTopic}
-          onChange={(e) => {
-            setCurrentTopic(e.target.value);
-          }}
-        />
+        </InputField>
         <Button onClick={() => addTopicConfig(currentTopic)} className="py-1">Add</Button>
       </div>
     </div>
@@ -208,7 +193,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
     <AnimatePresence>
       <PopIn className="rounded-lg bg-black b-[1px] border-b-white/10 text-white max-w-4xl min-w-1xl min-h-1xl">
         <div className="flex flex-col" style={{ backgroundImage: "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh"}}>
-          <div className="rounded-lg p-3 flex flex-row items-center justify-between border-b-[1px] border-b-white/20 backdrop-blur-md backdrop-brightness-125">
+          <div className="rounded-lg p-5 flex flex-row items-center justify-between border-b-[1px] border-b-white/20 backdrop-blur-md backdrop-brightness-125">
             <img
               src="/wordmark-dark.svg"
               alt="Reworkd WordMark"
@@ -232,7 +217,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
               </svg>
             </Button>
           </div>
-          <div className="p-3 flex flex-col gap-4">
+          <div className="p-5 flex flex-col gap-4">
 
             {showForm && promptField}
             {showForm && moodFields}
@@ -243,7 +228,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
             {isSuccess && results}
             {showForm && (
               <Button
-                className=" px-4 py-2 text-2xl"
+                className="justify-center px-4 py-2 text-2xl"
                 onClick={() => {
                   mutate({
                     prompt,

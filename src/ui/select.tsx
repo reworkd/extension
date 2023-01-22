@@ -11,15 +11,16 @@ type Props = {
 const Select = ({ value, label, items, setter }: Props) => {
   return (
     <div className="flex flex-col items-start justify-between gap-2">
-      <label htmlFor={label} className="text-sm font-medium text-gray-300">
+      <label htmlFor={label} className="text-xs font-medium text-gray-200">
         {label}
       </label>
       <select
         id={label}
         className="
-        rounded-lg
-        border border-gray-600
-        bg-slate-900
+        rounded-md
+        border-[1px]
+        border-white/20
+        bg-purple-900/50
         p-2.5 text-sm
         text-white
         placeholder-gray-400
