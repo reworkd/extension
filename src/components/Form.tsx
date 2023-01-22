@@ -192,23 +192,30 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
     </div>
   );
 
-  const results = <pre className="bg-gray-800 px-2 text-sm">{data?.value}</pre>;
+  const results = <pre
+    style={{
+      whiteSpace: "pre-wrap",
+      wordWrap: "break-word",
+    }}
+    className="bg-gray-800 p-4 rounded-md text-sm"
+  >
+    {data?.value}
+  </pre>;
 
   const showForm = !isLoading && !isSuccess;
 
   return (
     <AnimatePresence>
-      <PopIn className="rounded-lg bg-black b-[1px] border-b-white/10 text-white max-w-4xl">
+      <PopIn className="rounded-lg bg-black b-[1px] border-b-white/10 text-white max-w-4xl min-w-1xl min-h-1xl">
         <div className="flex flex-col" style={{ backgroundImage: "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh"}}>
           <div className="rounded-lg p-3 flex flex-row items-center justify-between border-b-[1px] border-b-white/20 backdrop-blur-md backdrop-brightness-125">
             <img
-              src="https://reworkd.ai/android-chrome-512x512.png"
+              src="/wordmark-dark.svg"
               alt="Reworkd WordMark"
               className=" rounded object-cover"
-              width={64}
+              width={175}
             />
-            <h1 className="text-4xl">Reworkd</h1>
-            <Button className="text-4xl" onClick={onClose}>
+            <Button onClick={onClose}>
               <svg
                 width="15"
                 height="15"
@@ -251,10 +258,10 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
               </Button>
             )}
             {isSuccess && (
-              <div className="flex flex-row items-end justify-center gap-2">
+              <div className="flex flex-row items-center justify-center gap-2">
                 <Button
                   onClick={reset}
-                  className="bg-red-500 px-4 py-2 text-2xl"
+                  className="px-4 py-2 text-2xl"
                 >
                   Reset
                 </Button>
