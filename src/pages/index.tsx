@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         <meta name="The Reworkd. extension" content="An AI power response generator created for NWHacks 2023" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="min-h-screen bg-black">
+      <main className="min-h-screen bg-black top-gradient">
         <Navbar/>
         <HeroText/>
         <div className="translate-y-[-12em] md:translate-y-[-15em] flex items-center justify-center text-white">

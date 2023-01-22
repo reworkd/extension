@@ -20,7 +20,7 @@ const HeroText: FC = () => (
       {/* Small screens */}
       <span className="block sm:hidden">Revolutionizing responses with the power of AI</span>
     </div>
-    <p className="text-slate-500 mt-7 text-[0.6rem] sm:text-xs lg:text-sm text-center">Reworkd AI is a Chrome extension that uses AI model to generate customizable responses based on the user's mood or tone.</p>
+    <p className="text-slate-400 mt-7 text-[0.6rem] sm:text-xs lg:text-base text-center">Reworkd AI is a Chrome extension that uses AI model to generate customizable responses based on the user's mood or tone.</p>
   </div>
 );
 
