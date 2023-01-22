@@ -18,12 +18,14 @@ export const eventRouter = createTRPCRouter({
         mood: z.string(),
         type: z.string(),
         length: z.string(),
+        topics: z.array(z.string()),
       })
     )
     .query(async ({ input }) => {
-      const prompt = `Use the following as a prompt: ${input.prompt}.
-        Your response should in a ${input.mood} tone and be ${input.length} in length.
-        Write it as ${input.type}.
+      const prompt = `I want to respond to the following: ${input.prompt}.
+        Your response should be in a ${input.mood} tone and be ${input.length} in length.
+        Write it as a ${input.type}.
+        Include information from the following list of additional information: [${input.topics.join()}].
       `;
 
       const res = await openAiClient.createCompletion({

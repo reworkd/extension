@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { AnimatePresence, motion } from "framer-motion";
 import PopIn from "../ui/popin";
 import Loader from "../ui/loader";
+import Button from "./Button";
 import { FaCopy } from "react-icons/fa";
 
 interface Request {
@@ -11,6 +12,7 @@ interface Request {
   mood: string;
   length: string;
   type: string;
+  topics: string[];
 }
 
 interface Response {
@@ -40,11 +42,19 @@ const openAiRequest = async (request: Request) => {
   const data = (await res.json()) as Response[];
   return data[0]?.result?.data?.json;
 };
+
+type TopicConfig = {
+  topic: string;
+  color: string;
+}
+
 const Form = ({ onClose }: { onClose?: () => void }) => {
   const [prompt, setPrompt] = useState("");
   const [mood, setMood] = useState("");
   const [length, setLength] = useState("");
   const [type, setType] = useState("");
+  const [currentTopic, setCurrentTopic] = useState<string>("");
+  const [topics, setTopics] = useState<TopicConfig[]>([]);
 
   const { mutate, isLoading, isSuccess, data, reset } = useMutation(
     ["submit"],
@@ -55,15 +65,13 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
   const promptField = (
     <div className="flex flex-row items-center gap-4">
       <label
-        htmlFor="FirstName"
         className="block text-xs font-medium text-gray-200"
       >
-        Prompt
+        Respond to
       </label>
       <input
         type="text"
-        id="FirstName"
-        className="mt-1 w-full rounded-md  border-gray-700 bg-gray-800 p-2 text-sm text-white shadow-sm"
+        className="mt-1 w-full rounded-md border-gray-700 bg-gray-800 p-2 text-sm text-white shadow-sm"
         onChange={(e) => {
           setPrompt(e.target.value);
         }}
@@ -76,16 +84,67 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
       <Select
         setter={setMood}
         label="Mood"
-        items={["Happy", "Condescending", "Angry", "Sickly"]}
+        items={["😊 Happy", "🙃 Condescending", "😡 Angry", "🤢 Sickly"]}
       />
       <Select
         setter={setLength}
         label="Length"
-        items={["Short", "Medium", "Long"]}
+        items={["📄 Short", "📕 Medium", "📚 Long"]}
       />
-      <Select setter={setType} label="Type" items={["Poem", "Song", "Story"]} />
+      <Select setter={setType} label="Type" items={["💼 Normal", "📜 Poem", "🎵 Song", "🎨 Story"]} />
     </div>
   );
+
+  const addTopicConfig = (topic: string) => {
+    if(topic === "") { return; }
+    setTopics([
+      ...topics,
+      {
+        topic: topic,
+        color: "#" + Math.floor(Math.random()*16777215).toString(16), // Random color
+      },
+    ]);
+    setCurrentTopic("");
+  }
+
+  const removeTopic = (i: number) => {
+    const newTopics = [...topics]
+    newTopics.splice(i, 1);
+    setTopics(newTopics);
+  }
+
+  const topicFields = (
+    <div>
+      <div className="flex flex-wrap gap-2 max-w-md ">
+        { topics.map((topic, i) => (
+          <div
+            key={`${topic.topic}-${topic.color}-${i}`}
+            className="rounded-xl px-2 flex flex-wrap gap-2"
+            style={{background: topic.color}}
+          >
+            {topic.topic}
+            <div className="text-black cursor-pointer" onClick={() => removeTopic(i)}>x</div>
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-row items-center gap-4">
+        <label
+          className="block text-xs font-medium text-gray-200"
+        >
+          Talk about
+        </label>
+        <input
+          type="text"
+          className="mt-1 w-full rounded-md border-gray-700 bg-gray-800 p-2 text-sm text-white shadow-sm"
+          value={currentTopic}
+          onChange={(e) => {
+            setCurrentTopic(e.target.value);
+          }}
+        />
+        <Button text="Add" onClick={() => addTopicConfig(currentTopic)}/>
+      </div>
+    </div>
+  )
 
   const results = <pre className="bg-gray-800 px-2 text-sm">{data?.value}</pre>;
 
@@ -123,6 +182,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
             </div>
             {showForm && promptField}
             {showForm && moodFields}
+            {showForm && topicFields}
             {isLoading && (
               <Loader size={60} className="flex flex-row justify-center" />
             )}
@@ -136,6 +196,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
                     mood,
                     length,
                     type,
+                    topics: topics.map(topic => topic.topic),
                   });
                 }}
               >
