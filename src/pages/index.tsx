@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import { motion, useScroll } from "framer-motion"
 
 import { api } from "../utils/api";
 import Navbar from "../components/Navbar";
@@ -32,14 +33,24 @@ const Home: NextPage = () => {
 };
 
 const InformationCard = ({title, text, flip}: { title: string, text: string, flip?: boolean }) => {
+
   return (
-    <div className="flex justify-between items-center flex-wrap m-10 gap-12 max-w-screen-lg">
-      <div className={`sm:w-[10em] h-[10em] bg-[aquamarine] rounded-2xl ${flip ? "order-1" : ""}`}></div>
-      <div className="flex flex-col gap-2 w-[25em]">
+    <motion.div
+      className="flex justify-between items-center flex-wrap m-10 gap-12 max-w-screen-lg">
+      <motion.div
+        initial={{ opacity: 0, x: flip ? 30 : -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.3, ease: "easeOut", delay: 0.3}}
+        className={`sm:w-[10em] h-[10em] bg-[aquamarine] rounded-2xl ${flip ? "order-1" : ""}`}></motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: flip ? -30 : 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.3, ease: "easeOut", delay: 0.3}}
+        className="flex flex-col gap-2 w-[25em]">
         <h1 className="text-2xl">{title}</h1>
         <p className="font-thin text-sm sm:text-lg font-sans">{text}</p>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   )
 }
 
