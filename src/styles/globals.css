@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fix for overscroll color */
+body {
+    background: black;
+}
+
 .top-gradient {
     background-image: radial-gradient(circle at 50% -300vh, #a21caf,transparent 70%);
 }

@@ -1,9 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import { motion, useScroll } from "framer-motion"
-import { signIn, signOut, useSession } from "next-auth/react";
-
-import { api } from "../utils/api";
+import cx from "classnames";
 import Navbar from "../components/Navbar";
 import HeroText from "../components/HeroText";
 
@@ -37,6 +35,7 @@ const Home: NextPage = () => {
 };
 
 const InformationCard = ({title, text, flip}: { title: string, text: string, flip?: boolean }) => {
+  const shadowColour = "rgb(192 132 252 / 50%)"
   return (
     <motion.div
       className="flex justify-between items-center flex-wrap m-10 gap-12 max-w-screen-lg">
@@ -44,17 +43,43 @@ const InformationCard = ({title, text, flip}: { title: string, text: string, fli
         initial={{ opacity: 0, x: flip ? 30 : -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.3, ease: "easeOut", delay: 0.3}}
-        className={`sm:w-[10em] h-[10em] bg-[aquamarine] rounded-2xl ${flip ? "order-1" : ""}`}></motion.div>
+        whileHover={{
+          scale: 1.1,
+          transition: { duration: 0.2, ease: "easeInOut", delay: 0 },
+        }}
+        className={`shadow-purple-400/80 ${flip ? "order-1 " : " "}`}
+        style={{ boxShadow: `0 0 100px 10px ${shadowColour}`}}
+      >
+        <MacWindowHeader/>
+        <div className={`sm:w-[30em] h-[20em] bg-purple-400/80 rounded-b-md}`}></div>
+      </motion.div>
       <motion.div
         initial={{ opacity: 0, x: flip ? -30 : 30 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.3, ease: "easeOut", delay: 0.3}}
-        className="flex flex-col gap-2 w-[25em]">
-        <h1 className="text-2xl">{title}</h1>
+        className="flex flex-col gap-2 w-[25em]"
+        style={{textShadow: `0px 0px 20px ${shadowColour}, 0px 0px 20px ${shadowColour}, 0px 0px 20px ${shadowColour}`}}
+      >
+        <h1 className="text-4xl">{title}</h1>
         <p className="font-thin text-sm sm:text-lg font-sans">{text}</p>
       </motion.div>
     </motion.div>
   )
 }
+
+const MacWindowHeader = () => {
+  return (
+    <div
+      className={cx(
+        "flex gap-1 rounded-t-md border-[1px] p-2",
+        "border-white/25 bg-black"
+      )}
+    >
+      <div className="h-3 w-3 rounded-full bg-red-500"></div>
+      <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
+      <div className="h-3 w-3 rounded-full bg-green-500"></div>
+    </div>
+  );
+};
 
 export default Home;
