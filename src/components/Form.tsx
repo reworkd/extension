@@ -1,8 +1,6 @@
 import Select from "../ui/select";
 import {ChangeEvent, useState} from "react";
 import { useMutation } from "@tanstack/react-query";
-import { AnimatePresence } from "framer-motion";
-import PopIn from "../ui/popin";
 import Loader from "../ui/loader";
 import Button from "./Button";
 import { FaCopy } from "react-icons/fa";
@@ -177,21 +175,22 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
     </div>
   );
 
-  const results = <pre
-    style={{
-      whiteSpace: "pre-wrap",
-      wordWrap: "break-word",
-    }}
-    className="bg-gray-800 p-4 rounded-md text-sm"
-  >
-    {data?.value}
-  </pre>;
+  const results = (
+    <pre
+      style={{
+        whiteSpace: "pre-wrap",
+        wordWrap: "break-word",
+      }}
+      className="rounded-md bg-gray-800 p-4 text-sm"
+    >
+      {data?.value}
+    </pre>
+  );
 
   const showForm = !isLoading && !isSuccess;
 
   return (
-    <AnimatePresence>
-      <PopIn className="rounded-lg bg-black b-[1px] border-b-white/10 text-white max-w-4xl shadow-2xl">
+      <div className="rounded-lg bg-black b-[1px] border-b-white/10 text-white max-w-4xl shadow-2xl">
         <div className="flex flex-col min-w-[32em] min-h-[20em] h-full" style={{ backgroundImage: "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh"}}>
           <div className="rounded-lg p-5 flex flex-row items-center justify-between border-b-[1px] border-b-white/20 backdrop-blur-md backdrop-brightness-125">
             <img
@@ -269,8 +268,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
             )}
           </div>
         </div>
-      </PopIn>
-    </AnimatePresence>
+      </div>
   );
 };
 

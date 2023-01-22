@@ -9,7 +9,7 @@ const InformationCards = () => {
     <>
       <InformationCard
         title="Compose emails"
-        color="rgb(232 129 249 / 50%)"
+        className="bg-gradient-to-r from-orange-400 to-rose-400"
         text="Simplify your email communication by using AI to compose detailed messages with just a brief prompt. Say goodbye to tedious typing and let the AI handle the heavy lifting for you."
       >
         <motion.div
@@ -38,9 +38,9 @@ const InformationCards = () => {
       </InformationCard>
       <InformationCard
         flip
-        color="rgb(65 165 250 / 75%)"
         title="Reply to tweets"
         text="Companies can now create tailored responses to their customers' tweets, replacing the use of generic replies. "
+        className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-400 to-blue-500"
       >
         <div className="flex items-center gap-2 rounded-md bg-white p-3 text-black">
           <Image
@@ -72,9 +72,9 @@ const InformationCards = () => {
         </div>
       </InformationCard>
       <InformationCard
-        color="rgb(127 255 212 / 50%)"
         title="Regenerate sentences"
         text="If you are not satisfied with the AI's response, you can easily generate a new one by clicking 'regenerate' which eliminates the need to spend extra time thinking of an alternate way to phrase your response."
+        className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-green-500 to-green-700"
       >
         {[
           "He got lost.",
@@ -118,9 +118,9 @@ const InformationCards = () => {
       </InformationCard>
       <InformationCard
         flip
-        color="rgb(255 255 255 / 70%)"
         title="Tailored responses"
         text="Response customization can be achieved by using different options such as emojis, response length, and level of detail. Using a combination of options can help you effectively convey your message in specific circumstances."
+        className="bg-gradient-to-r from-purple-800 via-violet-900 to-purple-800"
       >
         {[
           {
@@ -186,10 +186,11 @@ const InformationCards = () => {
 };
 
 type InformationCardProps = {
+  className?: string;
   title: string;
   text: string;
   flip?: boolean;
-  color: string;
+  color?: string;
   children?: JSX.Element | JSX.Element[];
 };
 
@@ -199,6 +200,7 @@ const InformationCard = ({
   flip,
   color,
   children,
+  className,
 }: InformationCardProps) => {
   return (
     <motion.div className="m-10 flex max-w-screen-lg flex-wrap items-center justify-center gap-12 xl:justify-between ">
@@ -211,12 +213,13 @@ const InformationCard = ({
           transition: { duration: 0.2, ease: "easeInOut", delay: 0 },
         }}
         className={`shadow-[shadowColour] ${flip ? "order-1 " : " "}`}
-        style={{ boxShadow: `0 0 100px 10px ${color}` }}
       >
         <MacWindowHeader />
         <div
-          className={`flex h-[20em] w-[20em] flex-col items-center justify-center gap-2 rounded-b-md sm:w-[30em]`}
-          style={{ background: color }}
+          className={`${
+            className ?? ""
+          } flex h-[20em] w-[20em] flex-col items-center justify-center gap-2 rounded-b-md sm:w-[30em]`}
+          style={color ? { background: color } : {}}
         >
           {children}
         </div>
