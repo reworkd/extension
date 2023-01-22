@@ -191,8 +191,8 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
 
   return (
     <AnimatePresence>
-      <PopIn className="rounded-lg bg-black b-[1px] border-b-white/10 text-white max-w-4xl min-w-1xl min-h-1xl">
-        <div className="flex flex-col" style={{ backgroundImage: "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh"}}>
+      <PopIn className="rounded-lg bg-black b-[1px] border-b-white/10 text-white max-w-4xl shadow-2xl">
+        <div className="flex flex-col min-w-[32em] min-h-[20em] h-full" style={{ backgroundImage: "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh"}}>
           <div className="rounded-lg p-5 flex flex-row items-center justify-between border-b-[1px] border-b-white/20 backdrop-blur-md backdrop-brightness-125">
             <img
               src="/wordmark-dark.svg"
@@ -217,7 +217,7 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
               </svg>
             </Button>
           </div>
-          <div className="p-5 flex flex-col gap-4">
+          <div className="p-5 flex h-full justify-evenly flex-col gap-4">
 
             {showForm && promptField}
             {showForm && moodFields}
