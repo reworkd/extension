@@ -1,13 +1,6 @@
 import Select from "../ui/select";
 import { useState } from "react";
-import { api } from "../utils/api";
 import { useQuery } from "@tanstack/react-query";
-import { createTRPCProxyClient } from "@trpc/client";
-import { chromeLink } from "trpc-chrome/link";
-import { AppRouter } from "../server/api/root";
-import { RegisterOptions } from "superjson/dist/class-registry";
-import { CustomTransfomer } from "superjson/dist/custom-transformer-registry";
-import { SuperJSONResult, Class, JSONValue } from "superjson/dist/types";
 
 const fetchUsers = async () => {
   const res = await fetch("http://localhost:3000/trpc/event/hello");
@@ -18,7 +11,7 @@ const Logo: React.FC<{ width?: number; className?: string }> = ({
   width,
   className,
 }) => {
-  const { data, status } = useQuery(["users"], fetchUsers);
+  const { status } = useQuery(["users"], fetchUsers);
 
   const [prompt, setPrompt] = useState("");
   const [mood, setMood] = useState("");
@@ -35,8 +28,6 @@ const Logo: React.FC<{ width?: number; className?: string }> = ({
             className=" rounded object-cover"
           />
         </div>
-        {JSON.stringify(data)}
-        {data}
         <div className="flex flex-row items-center gap-4">
           <label
             htmlFor="FirstName"
