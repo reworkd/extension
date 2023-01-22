@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "plasmo dev",
-    "dev:plasmo": "",
+    "dev": "next dev",
+    "dev:plasmo": "plasmo dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
     "start": "next start"
