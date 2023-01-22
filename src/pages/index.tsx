@@ -4,6 +4,7 @@ import { motion, useScroll } from "framer-motion"
 import cx from "classnames";
 import Navbar from "../components/Navbar";
 import HeroText from "../components/HeroText";
+import Footer from "../components/Footer";
 
 const Home: NextPage = () => {
   return (
@@ -29,6 +30,7 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
+        <Footer/>
       </main>
     </>
   );
