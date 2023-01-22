@@ -190,8 +190,8 @@ const Form = ({ onClose }: { onClose?: () => void }) => {
   const showForm = !isLoading && !isSuccess;
 
   return (
-      <div className="rounded-lg bg-black b-[1px] border-b-white/10 text-white max-w-4xl shadow-2xl">
-        <div className="flex flex-col min-w-[32em] min-h-[20em] h-full" style={{ backgroundImage: "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh"}}>
+      <div className="rounded-lg bg-black min-w-[32em] min-h-[20em] b-[1px] border-b-white/10 text-white max-w-4xl shadow-2xl">
+        <div className="flex flex-col h-full" style={{ backgroundImage: "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh"}}>
           <div className="rounded-lg p-5 flex flex-row items-center justify-between border-b-[1px] border-b-white/20 backdrop-blur-md backdrop-brightness-125">
             <img
               src="/wordmark-dark.svg"
