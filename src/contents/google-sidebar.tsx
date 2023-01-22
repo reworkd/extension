@@ -9,10 +9,6 @@ import Form from "../components/Form";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-// Inject to the webpage itself
-// import "../styles/globals.css";
-// import "./google-sidebar-base.css";
-
 export const config: PlasmoContentScript = {
   matches: ["http://*/*"],
 };

@@ -4,12 +4,12 @@ import Button from "./Button";
 import { FaDownload } from "react-icons/fa";
 
 const HeroText: FC = () => (
-  <div className="container mx-auto flex min-h-screen max-w-screen-lg flex-col items-center justify-center text-white">
+  <div className="container mx-auto flex min-h-screen max-w-screen-lg flex-col items-center  text-white">
     <motion.div
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut", delay: 0.25 }}
-      className="hero-text flex flex-col items-center text-center text-3xl font-medium tracking-tight text-white sm:text-5xl lg:text-7xl"
+      className="hero-text mt-40 flex flex-col items-center text-center text-3xl font-medium tracking-tight text-white sm:text-5xl lg:mt-60 lg:text-7xl"
     >
       <div className="mx-3 hidden gap-5 sm:flex">
         <div>Revolutionizing</div>
@@ -31,7 +31,7 @@ const HeroText: FC = () => (
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut", delay: 0.7 }}
-      className="mt-6 mb-16 max-w-xl text-center text-[0.6rem] text-slate-400 sm:text-lg lg:text-base"
+      className="mt-6 mb-16 max-w-xl text-center text-[0.6rem] text-lg text-slate-400"
     >
       Reworkd AI is a Chrome extension that uses AI model to generate
       customizable responses based on the user&apos;s mood or tone.
