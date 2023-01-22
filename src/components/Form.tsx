@@ -1,22 +1,53 @@
 import Select from "../ui/select";
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 
-const fetchUsers = async () => {
-  const res = await fetch("http://localhost:3000/trpc/event/hello");
-  return res.json();
+interface Request {
+  prompt: string;
+  mood: string;
+  length: string;
+  type: string;
+}
+
+interface Response {
+  result: {
+    data: {
+      json: {
+        value: string;
+      };
+    };
+  };
+}
+
+const openAiRequest = async (request: Request) => {
+  const res = await fetch(
+    `http://localhost:3000/api/trpc/event.hello?batch=1&input=${encodeURIComponent(
+      JSON.stringify({
+        "0": {
+          json: request,
+        },
+      })
+    )}`,
+    {
+      mode: "cors",
+    }
+  );
+
+  const data = (await res.json()) as Response[];
+  return data[0]?.result?.data?.json;
 };
-
-const Logo: React.FC<{ width?: number; className?: string }> = ({
-  width,
-  className,
-}) => {
-  const { status } = useQuery(["users"], fetchUsers);
-
+const Form = () => {
   const [prompt, setPrompt] = useState("");
   const [mood, setMood] = useState("");
   const [length, setLength] = useState("");
   const [type, setType] = useState("");
+
+  const { mutate, isLoading, isSuccess, data } = useMutation(
+    ["submit"],
+    openAiRequest,
+    {}
+  );
+  console.log(data);
 
   return (
     <div className="bg-black text-white">
@@ -59,12 +90,25 @@ const Logo: React.FC<{ width?: number; className?: string }> = ({
           label="Type"
           items={["Poem", "Song", "Story"]}
         />
-        <button className="rounded-xl bg-green-400 px-4 py-2 text-2xl">
-          Generate
-        </button>
+        {isSuccess && <div>{data?.value}</div>}
+        {isLoading || (
+          <button
+            className="rounded-xl bg-green-400 px-4 py-2 text-2xl"
+            onClick={() => {
+              mutate({
+                prompt,
+                mood,
+                length,
+                type,
+              });
+            }}
+          >
+            Generate
+          </button>
+        )}
       </div>
     </div>
   );
 };
 
-export default Logo;
+export default Form;

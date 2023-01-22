@@ -1,6 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import { motion, useScroll } from "framer-motion"
+import { signIn, signOut, useSession } from "next-auth/react";
 
 import { api } from "../utils/api";
 import Navbar from "../components/Navbar";
@@ -11,7 +12,10 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Reworkd.</title>
-        <meta name="The Reworkd. extension" content="An AI power response generator created for NWHacks 2023" />
+        <meta
+          name="The Reworkd. extension"
+          content="An AI power response generator created for NWHacks 2023"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="min-h-screen  bg-black top-gradient">
@@ -33,7 +37,6 @@ const Home: NextPage = () => {
 };
 
 const InformationCard = ({title, text, flip}: { title: string, text: string, flip?: boolean }) => {
-
   return (
     <motion.div
       className="flex justify-between items-center flex-wrap m-10 gap-12 max-w-screen-lg">
