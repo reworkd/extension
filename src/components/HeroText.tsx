@@ -74,7 +74,7 @@ const HeroText: FC = () => {
               </Button>
             }
           >
-            <Form />
+            <Form isDialog/>
           </Dialog>
         </motion.div>
       </div>
