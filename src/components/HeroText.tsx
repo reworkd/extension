@@ -9,7 +9,7 @@ const HeroText: FC = () => (
       transition={{ duration: 1, ease: "easeOut", delay: 0.25}}
       className="text-white hero-text text-center text-3xl sm:text-5xl lg:text-7xl flex flex-col items-center font-medium tracking-tight">
       <div
-        className="hidden sm:flex gap-5">
+        className="hidden sm:flex gap-5 mx-3">
         <div>Revolutionizing</div>
         <div className="rotation-container">
           <p>email</p>
@@ -18,10 +18,10 @@ const HeroText: FC = () => (
           <p>comment</p>
         </div>
       </div>
-      <div className="hidden sm:block">responses with the power of AI</div>
+      <div className="hidden sm:block mx-3">responses with the power of AI</div>
 
       {/* Small screens */}
-      <span className="block sm:hidden">Revolutionizing responses with the power of AI</span>
+      <span className="block sm:hidden mx-3">Revolutionizing responses with the power of AI</span>
     </motion.div>
     <motion.p
       initial={{ opacity: 0, y: -20 }}
