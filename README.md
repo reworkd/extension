@@ -57,7 +57,7 @@ git clone git@github.com:YOU_USER/confetti.git
 npm install
 ```
 
-4. Create a **.env** file with the following content:
+4. Create a `.env` file with the following content:
 
 > 🚧 The environment variables must match the following [schema](https://github.com/awtkns/confetti/blob/main/src/env/schema.mjs#L8).
 
@@ -73,9 +73,6 @@ OPENAI_API_KEY=
 5. Ready 🥳, now run:
 
 ```bash
-# Create database migrations
-npx prisma db push
-
-# Run the project:
-npm run dev
+npm run dev # for next app
+npm run dev:plasmo # for extension
 ```
