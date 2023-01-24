@@ -205,7 +205,7 @@ const Form = ({
       }}
       className="rounded-md bg-gray-800 p-4 text-sm"
     >
-      {data?.value}.trim()
+      {(data?.value ?? "").trim()}
     </pre>
   );
 
