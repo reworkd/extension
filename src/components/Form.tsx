@@ -212,9 +212,9 @@ const Form = ({
   const showForm = !isLoading && !isSuccess;
 
   return (
-    <div className="b-[1px] min-h-[20em] max-w-4xl rounded-lg border-b-white/10 backdrop-blur-md bg-black/75 text-white shadow-2xl ">
+    <div className="b-[1px] min-h-[20em] font-sans text-bold max-w-xl min-w-[30rem] rounded-lg border-b-white/10 backdrop-blur-md bg-black text-white shadow-2xl ">
       <div
-        className="flex h-full min-h-[20em] flex-col"
+        className="flex h-full min-h-[20em] rounded-lg flex-col"
         style={{
           backgroundImage:
             "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh",
@@ -258,7 +258,7 @@ const Form = ({
           {showForm && moodFields}
           {showForm && topicFields}
           {isLoading && (
-            <Loader size={60} className="flex flex-row justify-center" />
+            <Loader/>
           )}
           {isSuccess && results}
           {showForm && (
