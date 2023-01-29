@@ -21,12 +21,12 @@ const InformationCards = () => {
             ease: "easeOut",
             delay: 0.25,
           }}
-          className="flex flex-row items-center gap-4 rounded-xl bg-gray-100 p-8 align-middle"
+          className="flex flex-row items-center gap-4 rounded-xl bg-gray-100 p-4 align-middle"
         >
           <div className="rounded-xl bg-gray-200">
             <Image src="/gmail.png" alt="gmail" width="100" height="5" />
           </div>
-          <FaPlus size={40} className="text-slate-500" />
+          <FaPlus size={40} className="text-black" />
           <Image
             src="/icon.png"
             alt="reworkd"
@@ -43,7 +43,7 @@ const InformationCards = () => {
         text="Companies can now create tailored responses to their customers' tweets, replacing the use of generic replies. "
         className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-400 to-blue-500"
       >
-        <div className="flex items-center gap-2 rounded-md bg-white p-3 text-black">
+        <div className="mx-4 flex items-center gap-2 rounded-md bg-white p-2 text-black">
           <Image
             src="/elon.jpg"
             alt="elon"
@@ -97,7 +97,7 @@ const InformationCards = () => {
                   ease: "easeOut",
                   delay: i * 2 + 0.25,
                 }}
-                className="w-fit rounded-md bg-white p-1 px-3"
+                className="mx-4 w-fit rounded-md bg-white p-1 px-3"
               >
                 ...
               </motion.div>
@@ -110,7 +110,7 @@ const InformationCards = () => {
                   ease: "easeOut",
                   delay: i * 2.25 + 1.25,
                 }}
-                className="rounded-md bg-white p-1 px-3"
+                className="mx-4 rounded-md bg-white p-1 px-3"
               >
                 {item}
               </motion.div>
@@ -123,7 +123,7 @@ const InformationCards = () => {
         color="#4E1D95"
         title="Tailored responses"
         text="Response customization can be achieved by using different options such as emojis, response length, and level of detail. Using a combination of options can help you effectively convey your message in specific circumstances."
-        className="bg-gradient-to-r from-purple-800 via-violet-900 to-purple-800"
+        className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-400  to-purple-700"
       >
         {[
           {
@@ -216,7 +216,7 @@ const InformationCard = ({
           transition: { duration: 0.2, ease: "easeInOut", delay: 0 },
         }}
         className={`shadow-[shadowColour] ${flip ? "order-1 " : " "}`}
-        style={{ boxShadow: `0 0 100px 10px ${color}`}}
+        style={{ boxShadow: `0 0 100px 10px ${color}` }}
       >
         <MacWindowHeader />
         <div
