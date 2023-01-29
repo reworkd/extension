@@ -212,7 +212,7 @@ const Form = ({
   const showForm = !isLoading && !isSuccess;
 
   return (
-    <div className="b-[1px] min-h-[20em] font-sans text-bold max-w-xl min-w-[30rem] rounded-lg border-b-white/10 backdrop-blur-md bg-black text-white shadow-2xl ">
+    <div className={`b-[1px] min-h-[20em] font-sans text-bold max-w-md rounded-lg border-b-white/10 backdrop-blur-md bg-black text-white shadow-2xl ${isDialog ? `` : `min-w-[30rem]`}`}>
       <div
         className="flex h-full min-h-[20em] rounded-lg flex-col"
         style={{
