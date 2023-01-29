@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { motion } from "framer-motion";
 import Button from "./Button";
-import { FaDev, FaDownload } from "react-icons/fa";
+import { FaStar, FaDownload } from "react-icons/fa";
 import Dialog from "../ui/dialog";
 import Form from "./Form";
 
@@ -43,9 +43,9 @@ const HeroText: FC = () => {
       </motion.p>
       <div className="flex flex-row gap-2">
         <motion.a
-          initial={{ opacity: 0, x: -50, y: -20 }}
+          initial={{ opacity: 0, x: -50, y: 0 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 1.5 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.7 }}
           href="https://github.com/awtkns/reworkd"
           target="_blank"
           rel="noreferrer"
@@ -53,22 +53,22 @@ const HeroText: FC = () => {
         >
           <Button
             icon={<FaDownload />}
-            className="bg-indigo-500 hover:bg-blue-600"
+            className="bg-fuchsia-700 font-bold hover:bg-fuchsia-900"
           >
             Install
           </Button>
         </motion.a>
         <motion.div
-          initial={{ opacity: 0, x: 50, y: -20 }}
+          initial={{ opacity: 0, x: 50, y: 0 }}
           animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 1.5 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.7 }}
           className="z-10"
         >
           <Dialog
             trigger={
               <Button
-                className="bg-indigo-500 hover:bg-blue-600"
-                icon={<FaDev />}
+                className="bg-white font-bold text-black hover:bg-gray-300"
+                icon={<FaStar />}
               >
                 Demo
               </Button>
