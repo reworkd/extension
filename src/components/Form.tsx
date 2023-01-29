@@ -203,7 +203,7 @@ const Form = ({
         whiteSpace: "pre-wrap",
         wordWrap: "break-word",
       }}
-      className="rounded-md bg-gray-800 p-4 text-sm"
+      className="rounded-md bg-gray-800 p-4 text-sm max-h-80 overflow-y-scroll"
     >
       {(data?.value ?? "").trim()}
     </pre>
