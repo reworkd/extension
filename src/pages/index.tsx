@@ -19,14 +19,15 @@ const Home: NextPage = () => {
       </Head>
       <main className="top-gradient min-h-screen bg-black">
         <Navbar />
-        <Image
-          src={"/stars.png"}
-          alt={"Stars"}
-          width={"900"}
-          height={"900"}
-          className="absolute top-[10vh] left-[10vw] hidden w-[1500px] opacity-[0.4] md:block"
-        />
-
+        <div className="absolute top-[10vh] left-[10vw]">
+          <Image
+            src={"/stars.png"}
+            alt={"Stars"}
+            width={"900"}
+            height={"900"}
+            className="w-[1500px] opacity-[0.5]"
+          />
+        </div>
         <HeroText />
         <div className="flex w-full translate-y-[-12em] items-center justify-center text-white md:translate-y-[-15em]">
           <div className="crescent flex items-start justify-center">
