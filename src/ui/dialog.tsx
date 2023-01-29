@@ -59,7 +59,6 @@ const Dialog = (props: Props) => {
                 "fixed z-50",
                 "w-[95vw] max-w-md flex-col rounded-lg md:w-full",
                 "top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]",
-                "bg-white",
                 "focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
               )}
             >

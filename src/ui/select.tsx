@@ -27,6 +27,7 @@ const Select = ({ value, label, items, setter }: Props) => {
         focus:border-blue-500
         focus:ring-blue-500
         focus:ring-blue-500
+        w-full
         "
         value={value}
         onChange={(e) => {

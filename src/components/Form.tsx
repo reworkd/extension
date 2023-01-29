@@ -212,9 +212,9 @@ const Form = ({
   const showForm = !isLoading && !isSuccess;
 
   return (
-    <div className="b-[1px] min-h-[20em] min-w-[32em] max-w-4xl rounded-lg border-b-white/10 bg-black text-white shadow-2xl">
+    <div className="b-[1px] min-h-[20em] max-w-4xl rounded-lg border-b-white/10 backdrop-blur-md bg-black/75 text-white shadow-2xl ">
       <div
-        className="flex h-full min-h-[20em] min-w-[32em] flex-col"
+        className="flex h-full min-h-[20em] flex-col"
         style={{
           backgroundImage:
             "radial-gradient(circle at 50% -40vh, #a21caf , transparent 70vh",
