@@ -206,7 +206,7 @@ const InformationCard = ({
   className,
 }: InformationCardProps) => {
   return (
-    <motion.div className="m-10 flex max-w-screen-lg flex-wrap items-center justify-center gap-12 xl:justify-between ">
+    <motion.div className="snap m-10 flex min-h-[50vh] max-w-screen-lg flex-wrap items-center justify-center gap-12 xl:justify-between">
       <motion.div
         initial={{ opacity: 0, x: flip ? 30 : -30 }}
         whileInView={{ opacity: 1, x: 0 }}

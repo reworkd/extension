@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Logo from "./Logo";
-import Image from "next/image";
 
 type FooterContent = {
   sectionTitle: string;
@@ -49,7 +48,7 @@ const Footer = () => {
   return (
     <footer
       aria-label="Site Footer"
-      className="mt-auto w-full translate-y-[80em] text-white sm:translate-y-[90em] lg:translate-y-[40em]"
+      className="snap mt-auto w-full text-white"
       style={{
         backgroundImage: "url(/lines.svg)",
       }}

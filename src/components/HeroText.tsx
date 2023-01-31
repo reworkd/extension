@@ -7,7 +7,7 @@ import Form from "./Form";
 
 const HeroText: FC = () => {
   return (
-    <div className="container relative z-10 mx-auto flex min-h-screen max-w-screen-lg flex-col items-center justify-center text-white">
+    <div className="snap container relative z-10 mx-auto flex min-h-screen max-w-screen-lg flex-col items-center justify-center text-white">
       <div className="flex translate-y-[-5rem] flex-col items-center lg:translate-y-[-8rem]">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

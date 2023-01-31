@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 /* Fix for overscroll color */
+html {
+    scroll-snap-type: y mandatory;
+}
+
 body {
     background: black;
+}
+
+.snap {
+    scroll-snap-align: center;
 }
 
 .top-gradient {

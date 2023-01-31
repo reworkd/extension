@@ -31,13 +31,16 @@ const Home: NextPage = () => {
         <HeroText />
         <div className="flex w-full translate-y-[-12em] items-center justify-center text-white md:translate-y-[-15em]">
           <div className="crescent flex items-start justify-center">
-            <div className="flex w-full max-w-screen-lg translate-y-[15em] flex-col gap-32">
-              <InformationCards />
+            <div className="flex w-full translate-y-[15em] flex-col items-center justify-center">
+              <div className="flex w-full max-w-screen-lg flex-col gap-32">
+                <InformationCards />
+              </div>
+              <div className="mt-20 w-full">
+                <Footer />
+              </div>
             </div>
           </div>
         </div>
-
-        <Footer />
       </main>
     </>
   );
