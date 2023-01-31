@@ -1,4 +1,4 @@
-![Confetti](https://github.com/awtkns/reworkd/blob/main/public/social.png)
+![Reworkd](https://github.com/awtkns/reworkd/blob/main/public/social.png)
 
 <p align="center">
   <em>🤖 Making your life easier 🤖</em></br>
