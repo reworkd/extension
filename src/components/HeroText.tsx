@@ -15,23 +15,16 @@ const HeroText: FC = () => {
           transition={{ duration: 1, ease: "easeOut", delay: 0.25 }}
           className="hero-text z-10 mt-40 flex flex-col items-center text-center text-5xl font-medium tracking-tight text-white lg:mt-60 lg:text-7xl"
         >
-          <div className="mx-3 hidden gap-5 sm:flex">
+          <div className="mx-3 my-2 flex flex-col items-center justify-center gap-x-5 gap-y-2 md:my-0 md:flex-row">
             <div>Revolutionizing</div>
-            <div className="rotation-container">
+            <div className="rotation-container flex h-[3rem] items-center justify-center lg:h-[4.5rem]">
               <p>email</p>
               <p>tweet</p>
               <p>message</p>
               <p>comment</p>
             </div>
           </div>
-          <div className="mx-3 hidden sm:block">
-            responses with the power of AI
-          </div>
-
-          {/* Small screens */}
-          <span className="mx-3 block sm:hidden">
-            Revolutionizing responses with the power of AI
-          </span>
+          <div className="mx-3">responses with the power of AI</div>
         </motion.div>
         <motion.p
           initial={{ opacity: 0, y: -20 }}

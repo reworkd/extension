@@ -77,19 +77,19 @@ body {
 }
 
 .rotation-container p:nth-child(1) {
-    transform: rotateX(360deg) translateZ(30px);
+    transform: rotateX(360deg) translateZ(25px);
 }
 
 .rotation-container p:nth-child(2) {
-    transform: rotateX(270deg) translateZ(30px);
+    transform: rotateX(270deg) translateZ(25px);
 }
 
 .rotation-container p:nth-child(3) {
-    transform: rotateX(180deg) translateZ(30px);
+    transform: rotateX(180deg) translateZ(25px);
 }
 
 .rotation-container p:nth-child(4) {
-    transform: rotateX(90deg) translateZ(30px);
+    transform: rotateX(90deg) translateZ(25px);
 }
 
 
