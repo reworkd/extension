@@ -1,9 +1,14 @@
 {
-  "name": "boggle",
-  "version": "0.1.0",
+  "name": "reworkd",
+  "version": "1.0.0",
+  "displayName": "Reworkd",
+  "description": "Reworkd GPT-3 Chrome Extension",
+  "author": "admin@reworkd.ai",
+  "homepage_url": "https://reworkd.ai",
   "private": true,
   "scripts": {
     "build": "next build",
+    "build:plasmo": "plasmo build",
     "dev": "next dev",
     "dev:plasmo": "plasmo dev",
     "postinstall": "prisma generate",
