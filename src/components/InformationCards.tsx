@@ -10,7 +10,7 @@ const InformationCards = () => {
         title="Compose emails"
         color="rgba(250 134 83 / 60%)"
         className="bg-gradient-to-r from-orange-400 to-rose-400"
-        text="Simplify your email communication by using AI to compose detailed messages with just a brief prompt. Say goodbye to tedious typing and let the AI handle the heavy lifting for you."
+        text="Simplify your email process by using AI to compose detailed messages with just a brief prompt. Say goodbye to tedious typing and let the AI handle the heavy lifting for you."
       >
         <motion.div
           initial={{ scale: 0.5 }}
@@ -40,7 +40,7 @@ const InformationCards = () => {
         flip
         color="rgb(65 165 250 / 60%)"
         title="Reply to tweets"
-        text="Companies can now create tailored responses to their customers' tweets, replacing the use of generic replies. "
+        text="Create tailored responses within any messaging platform such as twitter, slack, discord, etc. "
         className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-sky-400 to-blue-500"
       >
         <div className="mx-4 flex items-center gap-2 rounded-md bg-white p-2 text-black">
@@ -74,8 +74,8 @@ const InformationCards = () => {
       </InformationCard>
       <InformationCard
         color="rgb(127 255 212 / 60%)"
-        title="Regenerate sentences"
-        text="If you are not satisfied with the AI's response, you can easily generate a new one by clicking 'regenerate' which eliminates the need to spend extra time thinking of an alternate way to phrase your response."
+        title="Regenerate responses"
+        text="If you aren't satisfied with the AI's response, you can easily generate a new one by clicking 'regenerate' which eliminates the need to spend extra time thinking of an alternate way to phrase your response."
         className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-green-500 to-green-700"
       >
         {[

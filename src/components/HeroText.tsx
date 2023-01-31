@@ -32,8 +32,9 @@ const HeroText: FC = () => {
           transition={{ duration: 1, ease: "easeOut", delay: 0.7 }}
           className="z-10 mx-10 mt-6 mb-16 max-w-xl text-center text-[0.6rem] text-base text-slate-400 lg:text-lg"
         >
-          Reworkd AI is a Chrome extension that uses AI model to generate
-          customizable responses based on the user&apos;s mood or tone.
+          Reworkd. is an AI powered Chrome extension that uses OpenAI models to
+          generate customizable responses based on a user&apos;s context and
+          mood.
         </motion.p>
         <div className="flex flex-row gap-2">
           <motion.a
