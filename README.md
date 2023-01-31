@@ -22,7 +22,7 @@
 ---
 
 ## 📖 About
-Reworkd revolutionizes responses with the power of AI. We are a team of developers and designers who are 
+Reworkd. AI revolutionizes responses with the power of AI. We are a team of developers and designers who are 
 passionate about building products that make a difference. We are currently working on a product that will 
 help you create better responses to your customers.
 
