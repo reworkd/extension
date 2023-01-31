@@ -10,7 +10,7 @@
  </a>
  <img alt="Health Check" src="https://img.shields.io/github/actions/workflow/status/awtkns/confetti/healthcheck.yml?label=Health%20Check&color=2334D058" />
  <img alt="License" src="https://img.shields.io/github/license/awtkns/confetti?color=2334D058" />
- <img alt="Node version" src="https://img.shields.io/static/v1?label=node&message=%20%3E=16.0.0&logo=node.js&color=2334D058" />
+ <img alt="Node version" src="https://img.shields.io/static/v1?label=node&message=%20%3E=16.0.0&logo=node.js&color=2334D058" /> 
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@
 ---
 
 ## 📖 About
-Reworkd.ai revolutionizes responses with the power of AI. We are a team of developers and designers who are 
+Reworkd revolutionizes responses with the power of AI. We are a team of developers and designers who are 
 passionate about building products that make a difference. We are currently working on a product that will 
 help you create better responses to your customers.
 
